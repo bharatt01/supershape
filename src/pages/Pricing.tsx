@@ -5,38 +5,40 @@ import { Check, ArrowRight, Star } from "lucide-react";
 const plans = [
  
   {
-    name: "12 Weeks Plan",
-    price: "₹9,999",
+    name: "3 Months Plan",
+    durationLabel: "12 Weeks",
+    price: "₹8,600",
     // duration: "/month",
-    description: "Most popular. Full transformation support.",
+    description: " Most popular. Full transformation support.",
     features: [
-      
-      "Detailed meal plans",
-      "Daily accountability",
       "Priority support 24/7",
+      
+      "Daily accountability",
+      "Detailed meal plans",
       "Direct WhatsApp support",
       "Form check videos",
       
        "Lifestyle optimization",
-      "Mindset coaching",
       "Weekly Adjustments & Easy Communications"
     ],
     popular: true
   },
   {
     name: "6 Months Plan",
-    price: "₹19,999",
+    durationLabel: "24 Weeks",
+    price: "₹15999",
     // duration: "/month",
     description: "Premium 1-on-1 intensive coaching",
     features: [
-      "Detailed meal plans",
+  "Priority support 24/7",
+      
       "Daily accountability",
-      "Priority support 24/7",
+      "Detailed meal plans",
       "Direct WhatsApp support",
       "Form check videos",
       
        "Lifestyle optimization",
-      "Mindset coaching",
+    
       "Weekly Adjustments & Easy Communications"
     ],
     popular: false
@@ -77,9 +79,20 @@ const Pricing = () => {
                   </div>
                 )}
                 
-                <div className="text-center mb-6">
-                  <h3 className="font-heading text-3xl text-foreground mb-2">{plan.name}</h3>
-                  <p className="text-muted-foreground text-sm mb-4">{plan.description}</p>
+              <div className="text-center mb-6">
+  <h3 className="font-heading text-3xl text-foreground">
+    {plan.name}
+  </h3>
+
+  {/* duration sub-heading */}
+  <div className="mt-1 mb-3 text-sm font-medium tracking-wide text-primary/80">
+    {plan.durationLabel}
+  </div>
+
+  <p className="text-muted-foreground text-sm mb-4">
+    {plan.description}
+  </p>
+
                   <div className="flex items-baseline justify-center gap-1">
                     <span className="font-heading text-5xl text-primary">{plan.price}</span>
                     <span className="text-muted-foreground">{plan.duration}</span>

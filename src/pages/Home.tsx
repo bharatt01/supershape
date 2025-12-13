@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Target, Users, TrendingUp, ArrowRight } from "lucide-react";
-import heroBg from "@/assets/hero-bg.jpg";
+import heroBg from "@/assets/bg-image.jpg";
 
 const Home = () => {
   return (
@@ -25,19 +25,31 @@ const Home = () => {
             Personal guidance. Real accountability. Lasting results. 
             Join the transformation journey that actually works.
           </p>
-          <div className="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in" style={{ animationDelay: '0.4s' }}>
-            <Link to="/contact">
-              <Button variant="hero" size="lg">
-                Connect With Me
-                <ArrowRight className="ml-2" />
-              </Button>
-            </Link>
-            <Link to="/transformations">
-              <Button variant="outline" size="lg">
-                See Results
-              </Button>
-            </Link>
-          </div>
+     <div
+  className="flex flex-col items-center justify-center animate-fade-in"
+  style={{ animationDelay: "0.4s" }}
+>
+<Link to="/form">
+  <Button
+    variant="hero"
+    size="lg"
+    className="flex flex-col items-center py-6 leading-tight"
+  >
+    <span className="flex items-center text-base font-semibold">
+      Start Here
+      <ArrowRight className="ml-2 w-4 h-4" />
+    </span>
+
+  
+  </Button>
+</Link>
+
+  {/* Sub-heading */}
+  <span className="mt-2 text-sm text-muted-foreground">
+    Takes only 2 minutes
+  </span>
+</div>
+
         </div>
       </section>
 
@@ -46,11 +58,11 @@ const Home = () => {
         <div className="container-custom">
           <div className="text-center max-w-3xl mx-auto mb-16">
             <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-6">
-              THIS ISN'T JUST <span className="text-gradient">FITNESS</span>
+              Its A Long Term <span className="text-gradient">CHANGE</span>
             </h2>
-            <p className="text-muted-foreground text-lg">
-              Supershape is about complete personal transformation. No cookie-cutter plans. 
-              No generic advice. Just real, focused guidance tailored to you and your goals.
+            <p className="text-muted-foreground text-md">
+              In Supershape Coaching, Hrithik guides you throughout your transformation journey with direct WhatsApp support.
+No generic plans — everything is tailored to your lifestyle and goals.
             </p>
           </div>
 
@@ -69,7 +81,7 @@ const Home = () => {
               {
                 icon: TrendingUp,
                 title: "Proven Results",
-                description: "Track record of transformations. Discipline meets consistency meets success."
+                description: "For those who commit to the process and stay consistent — with adjustments based on your lifestyle."
               }
             ].map((item, index) => (
               <div key={index} className="card-glass p-8 text-center hover:border-primary/50 transition-all duration-300">
@@ -112,7 +124,7 @@ const Home = () => {
             </div>
             <div className="card-glass p-8 lg:p-12">
               <blockquote className="text-xl md:text-2xl text-foreground font-medium mb-6">
-                "The body achieves what the mind believes."
+                "A Simple Transformation Process That Works."
               </blockquote>
               <p className="text-muted-foreground">
                 Every transformation starts with a decision. The decision to commit. 
