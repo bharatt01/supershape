@@ -1,47 +1,40 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Star } from "lucide-react";
-
 const plans = [
- 
   {
     name: "3 Months Plan",
     durationLabel: "12 Weeks",
     price: "₹8,600",
-    // duration: "/month",
-    description: " Most popular. Full transformation support.",
+    description: "Most popular. Full transformation support.",
     features: [
       "Priority support 24/7",
-      
       "Daily accountability",
       "Detailed meal plans",
       "Direct WhatsApp support",
       "Form check videos",
-      
-       "Lifestyle optimization",
+      "Lifestyle optimization",
       "Weekly Adjustments & Easy Communications"
     ],
-    popular: true
+    popular: true,
+    paymentLink: "https://rzp.io/rzp/BViuVdiD" // 🔴 Razorpay link 1
   },
   {
     name: "6 Months Plan",
     durationLabel: "24 Weeks",
-    price: "₹15999",
-    // duration: "/month",
+    price: "₹15,999",
     description: "Premium 1-on-1 intensive coaching",
     features: [
-  "Priority support 24/7",
-      
+      "Priority support 24/7",
       "Daily accountability",
       "Detailed meal plans",
       "Direct WhatsApp support",
       "Form check videos",
-      
-       "Lifestyle optimization",
-    
+      "Lifestyle optimization",
       "Weekly Adjustments & Easy Communications"
     ],
-    popular: false
+    popular: false,
+    paymentLink: "https://rzp.io/l/6months-plan" // 🔴 Razorpay link 2
   }
 ];
 
@@ -108,14 +101,20 @@ const Pricing = () => {
                   ))}
                 </ul>
 
-                <Link to="/contact" className="block">
-                  <Button 
-                    variant={plan.popular ? "default" : "outline"} 
-                    className="w-full"
-                  >
-                    Start Transformation
-                  </Button>
-                </Link>
+              <a
+  href={plan.paymentLink}
+  target="_blank"
+  rel="noopener noreferrer"
+  className="block"
+>
+  <Button
+    variant={plan.popular ? "default" : "outline"}
+    className="w-full"
+  >
+    Enroll Now
+  </Button>
+</a>
+
               </div>
             ))}
           </div>
