@@ -3,47 +3,41 @@ import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Star } from "lucide-react";
 
 const plans = [
+ 
   {
-    name: "Starter",
-    price: "₹4,999",
-    duration: "/month",
-    description: "Perfect for beginners ready to commit",
-    features: [
-      "Customized workout plan",
-      "Basic nutrition guidance",
-      "Weekly check-ins",
-      "Email support",
-      "Progress tracking"
-    ],
-    popular: false
-  },
-  {
-    name: "Transform",
+    name: "12 Weeks Plan",
     price: "₹9,999",
-    duration: "/month",
+    // duration: "/month",
     description: "Most popular. Full transformation support.",
     features: [
-      "Everything in Starter",
+      
       "Detailed meal plans",
       "Daily accountability",
+      "Priority support 24/7",
       "Direct WhatsApp support",
       "Form check videos",
-      "Mindset coaching"
+      
+       "Lifestyle optimization",
+      "Mindset coaching",
+      "Weekly Adjustments & Easy Communications"
     ],
     popular: true
   },
   {
-    name: "Elite",
+    name: "6 Months Plan",
     price: "₹19,999",
-    duration: "/month",
+    // duration: "/month",
     description: "Premium 1-on-1 intensive coaching",
     features: [
-      "Everything in Transform",
+      "Detailed meal plans",
+      "Daily accountability",
       "Priority support 24/7",
-      "Video call sessions",
-      "Supplement guidance",
-      "Lifestyle optimization",
-      "Exclusive resources"
+      "Direct WhatsApp support",
+      "Form check videos",
+      
+       "Lifestyle optimization",
+      "Mindset coaching",
+      "Weekly Adjustments & Easy Communications"
     ],
     popular: false
   }
@@ -67,7 +61,8 @@ const Pricing = () => {
       {/* Pricing Cards */}
       <section className="section-padding bg-secondary">
         <div className="container-custom">
-          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+<div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto place-items-center">
+
             {plans.map((plan, index) => (
               <div 
                 key={index} 
