@@ -1,0 +1,159 @@
+import { Link } from "react-router-dom";
+import { Button } from "@/components/ui/button";
+import { Check, ArrowRight, Star } from "lucide-react";
+
+const plans = [
+  {
+    name: "Starter",
+    price: "₹4,999",
+    duration: "/month",
+    description: "Perfect for beginners ready to commit",
+    features: [
+      "Customized workout plan",
+      "Basic nutrition guidance",
+      "Weekly check-ins",
+      "Email support",
+      "Progress tracking"
+    ],
+    popular: false
+  },
+  {
+    name: "Transform",
+    price: "₹9,999",
+    duration: "/month",
+    description: "Most popular. Full transformation support.",
+    features: [
+      "Everything in Starter",
+      "Detailed meal plans",
+      "Daily accountability",
+      "Direct WhatsApp support",
+      "Form check videos",
+      "Mindset coaching"
+    ],
+    popular: true
+  },
+  {
+    name: "Elite",
+    price: "₹19,999",
+    duration: "/month",
+    description: "Premium 1-on-1 intensive coaching",
+    features: [
+      "Everything in Transform",
+      "Priority support 24/7",
+      "Video call sessions",
+      "Supplement guidance",
+      "Lifestyle optimization",
+      "Exclusive resources"
+    ],
+    popular: false
+  }
+];
+
+const Pricing = () => {
+  return (
+    <div>
+      {/* Hero */}
+      <section className="section-padding bg-background pt-32">
+        <div className="container-custom text-center">
+          <h1 className="font-heading text-5xl md:text-6xl lg:text-7xl text-foreground mb-6">
+            SIMPLE <span className="text-gradient">PRICING</span>
+          </h1>
+          <p className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto">
+            Transparent plans. No hidden fees. Choose what works for you.
+          </p>
+        </div>
+      </section>
+
+      {/* Pricing Cards */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom">
+          <div className="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+            {plans.map((plan, index) => (
+              <div 
+                key={index} 
+                className={`card-glass p-8 relative ${
+                  plan.popular ? 'border-primary ring-2 ring-primary/20' : ''
+                }`}
+              >
+                {plan.popular && (
+                  <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
+                    <Star className="w-4 h-4" />
+                    Most Popular
+                  </div>
+                )}
+                
+                <div className="text-center mb-6">
+                  <h3 className="font-heading text-3xl text-foreground mb-2">{plan.name}</h3>
+                  <p className="text-muted-foreground text-sm mb-4">{plan.description}</p>
+                  <div className="flex items-baseline justify-center gap-1">
+                    <span className="font-heading text-5xl text-primary">{plan.price}</span>
+                    <span className="text-muted-foreground">{plan.duration}</span>
+                  </div>
+                </div>
+
+                <ul className="space-y-3 mb-8">
+                  {plan.features.map((feature, featureIndex) => (
+                    <li key={featureIndex} className="flex items-center gap-3">
+                      <Check className="w-5 h-5 text-primary flex-shrink-0" />
+                      <span className="text-foreground text-sm">{feature}</span>
+                    </li>
+                  ))}
+                </ul>
+
+                <Link to="/contact" className="block">
+                  <Button 
+                    variant={plan.popular ? "default" : "outline"} 
+                    className="w-full"
+                  >
+                    Start Transformation
+                  </Button>
+                </Link>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Payment Info */}
+      <section className="section-padding bg-background">
+        <div className="container-custom">
+          <div className="max-w-2xl mx-auto text-center">
+            <h2 className="font-heading text-3xl md:text-4xl text-foreground mb-6">
+              PAYMENT <span className="text-gradient">OPTIONS</span>
+            </h2>
+            <p className="text-muted-foreground mb-8">
+              We accept all major payment methods for your convenience.
+            </p>
+            <div className="flex flex-wrap justify-center gap-4">
+              {["UPI", "Bank Transfer", "Credit Card", "Debit Card", "PayTM"].map((method, index) => (
+                <span key={index} className="px-4 py-2 bg-secondary rounded-lg text-foreground text-sm">
+                  {method}
+                </span>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* CTA */}
+      <section className="section-padding bg-secondary">
+        <div className="container-custom text-center">
+          <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-6">
+            QUESTIONS? <span className="text-gradient">LET'S TALK</span>
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10">
+            Not sure which plan is right for you? Reach out and we'll find the perfect fit together.
+          </p>
+          <Link to="/contact">
+            <Button variant="hero" size="lg">
+              Get in Touch
+              <ArrowRight className="ml-2" />
+            </Button>
+          </Link>
+        </div>
+      </section>
+    </div>
+  );
+};
+
+export default Pricing;
