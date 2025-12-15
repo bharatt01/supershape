@@ -10,6 +10,7 @@ import Transformations from "./pages/Transformations";
 import Pricing from "./pages/Pricing";
 import Contact from "./pages/Contact";
 import NotFound from "./pages/NotFound";
+import OnboardingForm from "./components/OnboardingForm";
 
 const queryClient = new QueryClient();
 
@@ -26,6 +27,7 @@ const App = () => (
             <Route path="/transformations" element={<Transformations />} />
             <Route path="/pricing" element={<Pricing />} />
             <Route path="/contact" element={<Contact />} />
+            <Route path="/Onboardingform" element={<OnboardingForm />} />
             <Route path="*" element={<NotFound />} />
           </Routes>
         </Layout>

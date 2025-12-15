@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { ArrowRight, X } from "lucide-react";
+import { useNavigate } from "react-router-dom";
 
 interface OnboardingFormProps {
   onComplete: () => void;
@@ -16,7 +17,9 @@ const steps = [
 ];
 
 const OnboardingForm = ({ onComplete }: OnboardingFormProps) => {
+  const navigate = useNavigate();
   const [currentStep, setCurrentStep] = useState(0);
+
   const [formData, setFormData] = useState({
     name: "",
     number: "",
@@ -25,12 +28,20 @@ const OnboardingForm = ({ onComplete }: OnboardingFormProps) => {
     goal: "",
   });
 
+  // ✅ Validation for current step
+  const isCurrentStepValid = () => {
+    const key = steps[currentStep].key as keyof typeof formData;
+    return formData[key].trim() !== "";
+  };
+
   const handleNext = () => {
+    if (!isCurrentStepValid()) return;
+
     if (currentStep < steps.length - 1) {
-      setCurrentStep(currentStep + 1);
+      setCurrentStep((prev) => prev + 1);
     } else {
-      // Form completed - could save data here
       console.log("Form submitted:", formData);
+      navigate("/Pricing");
       onComplete();
     }
   };
@@ -90,7 +101,7 @@ const OnboardingForm = ({ onComplete }: OnboardingFormProps) => {
           className="h-14 text-lg bg-card border-border focus:border-primary text-center"
           autoFocus
           onKeyDown={(e) => {
-            if (e.key === "Enter") {
+            if (e.key === "Enter" && isCurrentStepValid()) {
               handleNext();
             }
           }}
@@ -100,6 +111,7 @@ const OnboardingForm = ({ onComplete }: OnboardingFormProps) => {
           onClick={handleNext}
           className="w-full h-14 text-lg"
           variant="hero"
+          disabled={!isCurrentStepValid()}
         >
           {currentStep < steps.length - 1 ? "Next" : "Get Started"}
           <ArrowRight className="ml-2 w-5 h-5" />

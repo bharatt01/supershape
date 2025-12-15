@@ -2,8 +2,11 @@ import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Target, Users, TrendingUp, ArrowRight } from "lucide-react";
 import heroBg from "@/assets/bg-image.jpg";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+    const navigate = useNavigate();
+
   return (
     <div>
       {/* Hero Section */}
@@ -29,11 +32,12 @@ const Home = () => {
   className="flex flex-col items-center justify-center animate-fade-in"
   style={{ animationDelay: "0.4s" }}
 >
-<Link to="/form">
+{/* <Link to="/form"> */}
   <Button
     variant="hero"
     size="lg"
     className="flex flex-col items-center py-6 leading-tight"
+     onClick={() => navigate("/Onboardingform")}
   >
     <span className="flex items-center text-base font-semibold">
       Start Here
@@ -42,7 +46,7 @@ const Home = () => {
 
   
   </Button>
-</Link>
+{/* </Link> */}
 
   {/* Sub-heading */}
   <span className="mt-2 text-sm text-muted-foreground">
