@@ -10,7 +10,7 @@ interface OnboardingFormProps {
 }
 
 const SHEET_API_URL =
-  "https://script.google.com/macros/s/AKfycbwBwGGw1t80OOxwKQVFN-OSOIGu0AxGqsk8FP_FqLLeOh8MH2ND9Ayi3fEX7mb5Zzem/exec";
+  "https://script.google.com/macros/s/AKfycbwU5GrOeGf0aIzIDd03uH48qdGOa14uMTiBbl7VHbJ8_cPlOb9rUSRPrRijeoS6BjIt/exec";
 
 const steps = [
   {
@@ -92,27 +92,28 @@ const OnboardingForm = ({ onComplete }: OnboardingFormProps) => {
   };
 
   const submitToSheet = async () => {
-    setLoading(true);
-    try {
-      await fetch(SHEET_API_URL, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData),
-        mode: "no-cors",
-      });
+  console.log("submitToSheet CALLED");
+  console.log("API URL:", SHEET_API_URL);
 
-      toast.success("Your form has been submitted 🎉");
+  setLoading(true);
 
-      setTimeout(() => {
-        onComplete?.();
-        navigate("/Pricing");
-      }, 1500);
-    } catch (error) {
-      console.error(error);
-      toast.error("Something went wrong ❌");
-      setLoading(false);
-    }
-  };
+  const fd = new FormData();
+  Object.entries(formData).forEach(([k, v]) => fd.append(k, v));
+
+  try {
+    await fetch(SHEET_API_URL, {
+      method: "POST",
+      body: fd,
+    });
+
+    toast.success("Form submitted successfully", { duration: 6000 });
+
+    setTimeout(() => navigate("/"), 6000);
+  } catch (e) {
+    console.error("FETCH ERROR:", e);
+    setLoading(false);
+  }
+};
 
   const handleNext = () => {
     if (!isCurrentStepValid() || loading) return;
