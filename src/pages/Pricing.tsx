@@ -17,7 +17,7 @@ const plans = [
       "Weekly Adjustments & Easy Communications"
     ],
     popular: true,
-    paymentLink: "https://rzp.io/rzp/L06P4FoA" // 🔴 Razorpay link 1
+    paymentLink: "https://rzp.io/rzp/Lrbc4Nrc" // 🔴 Razorpay link 1
   },
   {
     name: "6 Months Plan",
