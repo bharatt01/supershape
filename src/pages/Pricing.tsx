@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { Check, ArrowRight, Star } from "lucide-react";
+
 const plans = [
   {
     name: "3 Months Plan",
@@ -17,7 +18,7 @@ const plans = [
       "Weekly Adjustments & Easy Communications"
     ],
     popular: true,
-    paymentLink: "https://rzp.io/rzp/Lrbc4Nrc" // 🔴 Razorpay link 1
+    paymentPageLink: "https://rzp.io/rzp/Lrbc4Nrc" // Razorpay Page Link for 3 Months
   },
   {
     name: "6 Months Plan",
@@ -34,7 +35,7 @@ const plans = [
       "Weekly Adjustments & Easy Communications"
     ],
     popular: false,
-    paymentLink: "https://rzp.io/l/6months-plan" // 🔴 Razorpay link 2
+    paymentPageLink: "https://rzp.io/p/6months" // Razorpay Page Link for 6 Months
   }
 ];
 
@@ -56,14 +57,11 @@ const Pricing = () => {
       {/* Pricing Cards */}
       <section className="section-padding bg-secondary">
         <div className="container-custom">
-<div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto place-items-center">
-
+          <div className="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto place-items-center">
             {plans.map((plan, index) => (
               <div 
                 key={index} 
-                className={`card-glass p-8 relative ${
-                  plan.popular ? 'border-primary ring-2 ring-primary/20' : ''
-                }`}
+                className={`card-glass p-8 relative ${plan.popular ? 'border-primary ring-2 ring-primary/20' : ''}`}
               >
                 {plan.popular && (
                   <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-primary text-primary-foreground px-4 py-1 rounded-full text-sm font-semibold flex items-center gap-1">
@@ -72,23 +70,17 @@ const Pricing = () => {
                   </div>
                 )}
                 
-              <div className="text-center mb-6">
-  <h3 className="font-heading text-3xl text-foreground">
-    {plan.name}
-  </h3>
+                <div className="text-center mb-6">
+                  <h3 className="font-heading text-3xl text-foreground">{plan.name}</h3>
 
-  {/* duration sub-heading */}
-  <div className="mt-1 mb-3 text-sm font-medium tracking-wide text-primary/80">
-    {plan.durationLabel}
-  </div>
+                  <div className="mt-1 mb-3 text-sm font-medium tracking-wide text-primary/80">
+                    {plan.durationLabel}
+                  </div>
 
-  <p className="text-muted-foreground text-sm mb-4">
-    {plan.description}
-  </p>
+                  <p className="text-muted-foreground text-sm mb-4">{plan.description}</p>
 
                   <div className="flex items-baseline justify-center gap-1">
                     <span className="font-heading text-5xl text-primary">{plan.price}</span>
-                    <span className="text-muted-foreground">{plan.duration}</span>
                   </div>
                 </div>
 
@@ -101,20 +93,14 @@ const Pricing = () => {
                   ))}
                 </ul>
 
-              <a
-  href={plan.paymentLink}
-  target="_blank"
-  rel="noopener noreferrer"
-  className="block"
->
-  <Button
-    variant={plan.popular ? "default" : "outline"}
-    className="w-full"
-  >
-    Enroll Now
-  </Button>
-</a>
-
+                {/* Razorpay Payment Page Button */}
+                <Button
+                  variant={plan.popular ? "default" : "outline"}
+                  className="w-full"
+                  onClick={() => window.open(plan.paymentPageLink, "_blank")}
+                >
+                  Enroll Now
+                </Button>
               </div>
             ))}
           </div>
