@@ -2,11 +2,11 @@ import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import { Menu, X } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 const navLinks = [
   { name: "Home", path: "/" },
   // { name: "Why Choose Us", path: "/why-choose-us" },
-  { name: "Transformations", path: "/transformations" },
+  // { name: "Transformations", path: "/transformations" },
   { name: "Pricing", path: "/pricing" },
   { name: "Contact", path: "/contact" },
 ];
@@ -14,7 +14,7 @@ const navLinks = [
 const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const navigate = useNavigate();
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="container-custom">
@@ -47,11 +47,11 @@ const Navbar = () => {
 
           {/* CTA Button */}
           <div className="hidden lg:block">
-            <Link to="/contact">
-              <Button variant="default" size="default">
+            {/* <Link to="/contact"> */}
+              <Button variant="default" size="default" onClick={() => navigate('/onboardingform')}>
                 Connect Now
               </Button>
-            </Link>
+            {/* </Link> */}
           </div>
 
           {/* Mobile Menu Button */}

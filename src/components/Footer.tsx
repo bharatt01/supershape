@@ -21,12 +21,12 @@ const Footer = () => {
           <div>
             <h4 className="font-heading text-lg text-foreground mb-4">Quick Links</h4>
             <nav className="flex flex-col gap-2">
-              <Link to="/why-choose-us" className="text-muted-foreground hover:text-primary transition-colors text-sm">
-                Why Choose Us
+              <Link to="/" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+                Home
               </Link>
-              <Link to="/transformations" className="text-muted-foreground hover:text-primary transition-colors text-sm">
+              {/* <Link to="/transformations" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                 Transformations
-              </Link>
+              </Link> */}
               <Link to="/pricing" className="text-muted-foreground hover:text-primary transition-colors text-sm">
                 Pricing
               </Link>

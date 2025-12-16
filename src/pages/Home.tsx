@@ -148,7 +148,7 @@ No generic plans — everything is tailored to your lifestyle and goals.
           <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10">
             Your transformation is one message away. Connect with me today and let's build something real.
           </p>
-          <Link to="/contact">
+          <Link to="/onboardingform">
             <Button variant="hero" size="lg">
               Start Your Transformation
               <ArrowRight className="ml-2" />

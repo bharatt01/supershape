@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
-
+import { useNavigate } from "react-router-dom";
 const transformations = [
   {
     id: 1,
@@ -29,7 +29,9 @@ const transformations = [
   }
 ];
 
+
 const Transformations = () => {
+  const navigate = useNavigate();
   return (
     <div>
       {/* Hero */}
@@ -121,12 +123,12 @@ const Transformations = () => {
           <p className="text-muted-foreground text-lg max-w-xl mx-auto mb-10">
             Ready to become the next success story? Let's make it happen.
           </p>
-          <Link to="/contact">
-            <Button variant="hero" size="lg">
+          {/* <Link to="/contact"> */}
+            <Button variant="hero" size="lg" onClick={() => navigate('/onboardingform')}>
               Start Now
               <ArrowRight className="ml-2" />
             </Button>
-          </Link>
+          {/* </Link> */}
         </div>
       </section>
     </div>
