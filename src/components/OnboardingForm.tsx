@@ -106,7 +106,7 @@ const OnboardingForm = ({ onComplete }: OnboardingFormProps) => {
       body: fd,
     });
 
-    toast.success("Form submitted successfully", { duration: 6000 });
+    toast.success("Your enquiry form has been successfully submitted. You will be contacted via WhatsApp to discuss the next steps. Response usually takes 48–72 hours", { duration: 6000 });
 
     setTimeout(() => navigate("/"), 6000);
   } catch (e) {
