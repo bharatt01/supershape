@@ -183,8 +183,10 @@ const Contact = () => {
           </div>
         </div>
       </section>
-
-      {/* everything below stays EXACTLY SAME */}
+{/* <section className="section-padding bg-secondary"> <div className="container-custom"> 
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-3xl mx-auto"> */}
+     {/* {contactMethods.map((method, index) => ( <a key={index} href={method.href} target="_blank" rel="noopener noreferrer" className="card-glass p-8 text-center hover:border-primary/50 transition-all duration-300 group" > <div className={w-16 h-16 mx-auto mb-6 rounded-full ${method.color} flex items-center justify-center transition-transform group-hover:scale-110} > <method.icon className="w-8 h-8 text-white" /> </div> <h3 className="font-heading text-2xl text-foreground mb-2"> {method.name} </h3> <p className="text-muted-foreground text-sm mb-6"> {method.description} </p> <span className="inline-flex items-center text-primary font-medium"> {method.action} <ArrowUpRight className="w-4 h-4 ml-1" /> </span> </a> ))} </div> </div> </section> */}
+   <section className="section-padding bg-background"> <div className="container-custom"> <div className="max-w-2xl mx-auto text-center"> <h2 className="font-heading text-4xl md:text-5xl text-foreground mb-6"> READY TO <span className="text-gradient">BEGIN</span>? </h2> <p className="text-muted-foreground text-lg mb-8"> The hardest step is the first one. But you&apos;re already here. That tells me you&apos;re serious about change. </p> <a href="https://wa.me/919876543210" target="_blank" rel="noopener noreferrer" > <Button variant="hero" size="lg"> <MessageCircle className="mr-2" /> Message Me on WhatsApp </Button> </a> </div> </div> </section> {/* Closing Message */} <section className="section-padding bg-secondary"> <div className="container-custom"> <div className="max-w-3xl mx-auto text-center"> <blockquote className="font-heading text-3xl md:text-4xl text-foreground mb-6"> &quot;THE BEST TIME TO START WAS YESTERDAY. <br /> <span className="text-gradient"> THE SECOND BEST TIME IS NOW. </span> &quot; </blockquote> <p className="text-muted-foreground"> Don&apos;t wait for the &quot;perfect&quot; moment. Create it. </p> </div> </div> </section>
     </div>
   );
 };
